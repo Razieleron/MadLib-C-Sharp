@@ -31,8 +31,8 @@ namespace MadLib.Controllers
     public ActionResult FilledInMadLib(string name, string verb)
     {
       MadLibVariable basicMadLib = new MadLibVariable();
-      basicMadLib.Name = name;
-      basicMadLib.Verb = verb;
+      basicMadLib.Name = basicMadLib.Simon(name);
+      basicMadLib.Verb = basicMadLib.Verbs(verb);
       return View(basicMadLib);
     }
 
