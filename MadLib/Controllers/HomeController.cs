@@ -5,20 +5,11 @@ namespace MadLib.Controllers
 {
   public class HomeController : Controller
   {
-    [Route("/hello")]
-    public string Hello() { return "Hello friend!"; }
 
-    [Route("/goodbye")]
-    public string Goodbye() { return "Goodbye friend."; }
-
-    //this is gonna be um, the foundation for the madlib and what have you
     [Route("/")]
     public ActionResult MadLib() 
     {
-      MadLibVariable basicMadLib = new MadLibVariable();
-      basicMadLib.Name = "haha";
-      basicMadLib.Verb = "jump";
-      return View(basicMadLib);
+      return View();
     }
 
     [Route("/form")]
@@ -34,6 +25,24 @@ namespace MadLib.Controllers
       basicMadLib.Name = basicMadLib.Simon(name);
       basicMadLib.Verb = basicMadLib.Verbs(verb);
       return View(basicMadLib);
+    }
+    [Route("/dragonform")]
+    public ActionResult DragonForm()
+    {
+      return View();
+    }
+    [Route("/puppyform")]
+    public ActionResult PuppyForm()
+    {
+      return View();
+    }
+    [Route("/dragonmadlib")]
+    public ActionResult DragonMadLib(string name, string verb)
+    {
+      DragonMadLibVariable dasicMadLib = new DragonMadLibVariable();
+      dasicMadLib.Name = dasicMadLib.Simon(name);
+      dasicMadLib.Verb = dasicMadLib.Verbs(verb);
+      return View(dasicMadLib);
     }
 
     // [Route("/")]
